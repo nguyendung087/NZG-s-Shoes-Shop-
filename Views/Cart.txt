@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SanPham>
+<head>
+    <title>NZG KICKS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" href="~/images/NZGg-removebg.png" type="image/x-icon">
+    <link href="~/css/cart.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container padding-bottom-3x mb-1">
+        <!-- Shopping Cart-->
+        <div class="table-responsive shopping-cart">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tên Sản Phẩm</th>
+                        <th class="text-center">Số Lượng</th>
+                        <th class="text-center">Thành Tiền</th>
+                        <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="#">Xóa Sản Phẩm</a></th>
+                    </tr>
+                </thead>
+                @foreach(var item in Model)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="product-item">
+
+                                    <span class="product-title"><a href="#">@item.TenGiay</a></span><div>Kích cỡ: 10.5</div><span>Màu sắc: @item.MauSac</span>
+                                    <a class="product-thumb" href="#"><img style="margin-left: -150px" width="150px" height="auto" src="@item.HinhAnh" alt="Product"></a>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="count-input">
+                                    <input style="margin-left: -50px" type="number" name="quantity" />
+                                </div>
+                            </td>
+                            <td class="text-center text-lg text-medium">@item.GiaBan</td>
+                            <td class="text-center"><a class="remove-from-cart" href="#" data-toggle="tooltip" title="" data-original-title="Xóa"><i class="fa fa-trash"></i></a></td>
+                        </tr>
+                    </tbody>
+                }
+                
+            </table>
+        </div>
+        <div class="shopping-cart-footer">
+            <hr />
+            <div class="column text-lg">Tổng Tiền: <span class="text-medium">$289.68</span></div>
+        </div>
+        <div class="shopping-cart-footer">
+            <div class="column"><a class="btn btn-outline-secondary" href="/Home/Shop"><i class="icon-arrow-left"></i>&nbsp;Quay Lại Cửa Hàng</a></div>
+            <div class="column"><a class="btn btn-success" href="#">Thanh Toán</a></div>
+        </div>
+    </div>
+</body>

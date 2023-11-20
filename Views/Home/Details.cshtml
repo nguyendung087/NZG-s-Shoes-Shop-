@@ -1,0 +1,131 @@
+﻿@model IEnumerable<SanPham>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <div class="single">
+        <div class="wrap">
+            @foreach(var item in Model)
+            {
+                <form action="@Url.Action("ThemGioHang", "Cart")" method="post">
+                    <div class="cont span_2_of_3">
+                        <div class="labout span_1_of_a1">
+                            <!-- start product_slider -->
+                            <ul id="etalage">
+                                <li>
+                                    <a href="#">
+                                        <img class="etalage_thumb_image" src="@item.HinhAnh" />
+                                    </a>
+                                </li>
+                            </ul>
+
+
+                            <!-- end product_slider -->
+                        </div>
+                        <div class="cont1 span_2_of_a1">
+                            <h3 class="m_3">@item.TenGiay</h3>
+
+                            <div class="price_single">
+                                <span class="reducedfrom">@string.Format("{0:N2}", item.GiaBan + 200000)đ</span>
+                                <span class="actual">@string.Format("{0:N2}", item.GiaBan)đ</span>
+                            </div>
+                            <h4 class="m_9">Chọn kích cỡ</h4>
+                            <select name="size" class="options">
+                                
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <div class="clear"></div>
+                            </select>
+                            @*<ul name="size" class="options">
+                                <h4 class="m_9">Chọn kích cỡ</h4>
+                                <li><a value="41">41</a></li>
+                                <li><a value="42">42</a></li>
+                                <li><a value="43">43</a></li>
+                                <li><a value="44">44</a></li>
+                                <div class="clear"></div>
+                            </ul>  *@ 
+                            <div class="btn_form">
+                                <form>
+                                    <input type="submit" value="Mua Ngay" title="">
+                                </form>
+                            </div>@*
+                        <ul class="add-to-links">
+                        <li><img src="~/images/wish.png" alt="" /><a href="#">Add to wishlist</a></li>
+                        </ul>*@
+                            <p class="m_desc">Đây là 1 đôi giày</p>
+
+                            <div class="social_single">
+                                <ul>
+                                    <li class="fb"><a href="#"><span> </span></a></li>
+                                    <li class="tw"><a href="#"><span> </span></a></li>
+                                    <li class="g_plus"><a href="#"><span> </span></a></li>
+                                    <li class="rss"><a href="#"><span> </span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+
+
+                        <script type="text/javascript">
+                            $(window).load(function () {
+                                $("#flexiselDemo1").flexisel();
+                                $("#flexiselDemo2").flexisel({
+                                    enableResponsiveBreakpoints: true,
+                                    responsiveBreakpoints: {
+                                        portrait: {
+                                            changePoint: 480,
+                                            visibleItems: 1
+                                        },
+                                        landscape: {
+                                            changePoint: 640,
+                                            visibleItems: 2
+                                        },
+                                        tablet: {
+                                            changePoint: 768,
+                                            visibleItems: 3
+                                        }
+                                    }
+                                });
+
+                                $("#flexiselDemo3").flexisel({
+                                    visibleItems: 5,
+                                    animationSpeed: 1000,
+                                    autoPlay: true,
+                                    autoPlaySpeed: 3000,
+                                    pauseOnHover: true,
+                                    enableResponsiveBreakpoints: true,
+                                    responsiveBreakpoints: {
+                                        portrait: {
+                                            changePoint: 480,
+                                            visibleItems: 1
+                                        },
+                                        landscape: {
+                                            changePoint: 640,
+                                            visibleItems: 2
+                                        },
+                                        tablet: {
+                                            changePoint: 768,
+                                            visibleItems: 3
+                                        }
+                                    }
+                                });
+
+                            });
+                        </script>
+                        <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+                        <div class="toogle">
+                            <h3 class="m_3">Mô Tả Sản Phẩm</h3>
+                            <p class="m_text">Như đã nói bên trên</p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </form>  
+                
+            }
+            
+        </div>
+    </div>
+</body>

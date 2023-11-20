@@ -1,0 +1,74 @@
+﻿@model QuanLyBanGiay.Models.SanPham
+@Html.Partial("/Views/Shared/_AdminLink.cshtml")
+@{
+    ViewData["Title"] = "Thêm Sản Phẩm";
+    Layout = null;
+}
+
+<body>
+    <h1>Thêm Sản Phẩm</h1>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            @using (Html.BeginForm("Create", "SanPham", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="TenGiay" class="control-label"></label>
+                    <input asp-for="TenGiay" class="form-control" />
+                    <span asp-validation-for="TenGiay" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PhanLoai" class="control-label"></label>
+                    <select name="PhanLoai" class="form-control">
+                        <option>---Chọn Phân Loại---</option>
+                        <option value="Cổ Cao">Cổ Cao</option>
+                        <option value="Cổ Thấp">Cổ Thấp</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ThuongHieu" class="control-label"></label>
+                    <select name="ThuongHieu" class="form-control">
+                        <option>---Chọn Thương Hiệu---</option>
+                        <option value="Nike">Nike</option>
+                        <option value="Vans">Vans</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MauSac" class="control-label"></label>
+                    <select name="MauSac" class="form-control">
+                        <option>---Chọn Màu Sắc---</option>
+                        <option value="Đen">Đen</option>
+                        <option value="Trắng">Trắng</option>
+                        <option value="Nâu">Nâu</option>
+                        <option value="Be Sữa">Be Sữa</option>
+                        <option value="Đỏ">Đỏ</option>
+                        <option value="Xanh Lá">Xanh Lá</option>
+                        <option value="Đen">Đen</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="GiaBan" class="control-label"></label>
+                    <input asp-for="GiaBan" class="form-control" />
+                    <span asp-validation-for="GiaBan" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HinhAnh" class="control-label"></label>
+                    <input type="file" id="themAnh" name="img" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Thêm" class="btn btn-primary" />
+                </div>
+            }
+
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</body>
+
+
+

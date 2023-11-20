@@ -1,0 +1,77 @@
+﻿@model GioHang
+<head>
+    <title>NZG KICKS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" href="~/images/NZGg-removebg.png" type="image/x-icon">
+    <link href="~/css/cart.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container padding-bottom-3x mb-1">
+        <!-- Shopping Cart-->
+        <div class="table-responsive shopping-cart">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tên Sản Phẩm</th>
+                        <th class="text-center">Số Lượng</th>
+                        <th class="text-center">Đơn Giá</th>
+                        <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="/Cart/XoaTatCa">Xóa Sản Phẩm</a></th>
+                    </tr>
+                </thead>
+                @foreach(var item in Model?.matHangs)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="product-item">
+
+                                    <span class="product-title"><a href="#">@item.sanpham.TenGiay</a></span><div>Kích cỡ: 43</div><span>Màu sắc: @item.sanpham.MauSac</span>
+                                    <a class="product-thumb" href="#"><img style="margin-left: -150px" width="150px" height="auto" src="@item.sanpham.HinhAnh" alt="Product"></a>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="count-input">
+                                    @if (item.SoLuong > 1)
+                                    {
+                                        <a @*style="margin-left: -20px" *@class="btn btn-sm btn-danger text-center" href="/Cart/GiamGioHang/?productID=@item.sanpham.ID"></a>
+                                        <span>@item.SoLuong</span>
+                                        <a @*style="margin-left: -50px"*@ class="btn btn-sm btn-success text-center" href="/Cart/ThemGioHang/?productID=@item.sanpham.ID"></a>
+                                    } 
+                                    else
+                                    {
+                                        <span @*style="margin-left: -20px" *@class="btn btn-sm btn-danger text-center" style="opacity:0.3" ></span>
+                                        <span>@item.SoLuong</span>
+                                        <a @*style="margin-left: -50px"*@ class="btn btn-sm btn-success text-center" href="/Cart/ThemGioHang/?productID=@item.sanpham.ID"></a>
+                                    }
+                                    
+                                </div>
+                            </td>
+                            <td class="text-center text-lg text-medium">@string.Format("{0:N2}", item.sanpham.GiaBan)đ</td>
+                            <td class="text-center"><a class="btn btn-danger" href="/Cart/Xoa/?productID=@item.sanpham.ID">Xóa</a></td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        </div>
+        <div class="shopping-cart-footer">
+            <hr />
+            <div class="column text-lg">Thành Tiền: <span class="text-medium">@string.Format("{0:N2}", Model.TinhTongTien())đ</span></div>
+        </div>
+        <div class="shopping-cart-footer">
+            <div class="column"><a class="btn btn-outline-secondary" href="/Home/Shop"><i class="icon-arrow-left"></i>&nbsp;Quay Lại Cửa Hàng</a></div>
+            @if(Model.matHangs.Count() > 0 )
+            {
+                <div class="column"><a class="btn btn-success" href="/Cart/DatHang">Thanh Toán</a></div>
+            }
+            else
+            {
+                <div class="column"><span class="btn btn-success" style="opacity: 0.3">Thanh Toán</span></div>
+            }
+            
+        </div>
+    </div>
+</body>

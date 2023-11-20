@@ -1,0 +1,21 @@
+﻿@Html.Partial("/Views/Shared/_AdminLink.cshtml")
+@{
+    ViewData["Title"] = "Đăng Nhập";
+    Layout = null;
+}
+
+<h2>@ViewData["Title"]</h2>
+<body>
+    <div>
+        <form asp-action="AdLogin" asp-controller="KHAccount" method="post">
+            <label>Tên Đăng Nhập</label>
+            <input name="username" type="text" /> <br />
+
+            <label>Mật Khẩu</label>
+            <input type="password" name="password" />
+
+            <input type="submit" value="Đăng Nhập" class="btn btn-primary" />
+        </form>
+    </div>
+</body>
+

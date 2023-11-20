@@ -1,0 +1,135 @@
+﻿@{
+    Layout = null;
+}
+<head>
+    <link href="~/css/checkout.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        
+
+                        <hr class="my-4">
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="text-muted">
+                                    <h5 class="font-size-16 mb-3">Khách Đặt Hàng:</h5>
+                                    <h5 class="font-size-15 mb-2">Nguyễn Dũng</h5>
+                                    <p class="mb-1">Nhổn</p>
+                                    <p>0123456789</p>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            <div class="col-sm-6">
+                                <div class="text-muted text-sm-end">
+                                    <div>
+                                        <h5 class="font-size-15 mb-1">Hóa đơn số:</h5>
+                                        <p>1</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <h5 class="font-size-15 mb-1">Đặt ngày:</h5>
+                                        <p>05/05/2023</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                        <div class="py-2">
+                            <h5 class="font-size-15">Tổng Kết Hóa Đơn</h5>
+
+                            <div class="table-responsive">
+                                <table class="table align-middle table-nowrap table-centered mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px;">STT</th>
+                                            <th>Sản Phẩm</th>
+                                            <th>Đơn Giá</th>
+                                            <th>Số Lượng</th>
+                                            <th class="text-end" style="width: 120px;">Tổng</th>
+                                        </tr>
+                                    </thead><!-- end thead -->
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">01</th>
+                                            <td>
+                                                <div>
+                                                    <h5 class="text-truncate font-size-14 mb-1">Nike Air Jordan 1 High Travis Scott</h5>
+                                                    <p class="text-muted mb-0">Cổ Cao, Nâu</p>
+                                                </div>
+                                            </td>
+                                            <td>1.300.000đ</td>
+                                            <td>1</td>
+                                            <td class="text-end">1.300.000đ</td>
+                                        </tr>
+                                        <!-- end tr -->
+                                        @*<tr>
+                                            <th scope="row">02</th>
+                                            <td>
+                                                <div>
+                                                    <h5 class="text-truncate font-size-14 mb-1">Stainless Steel S010</h5>
+                                                    <p class="text-muted mb-0">Watch, Gold</p>
+                                                </div>
+                                            </td>
+                                            <td>$ 245.50</td>
+                                            <td>2</td>
+                                            <td class="text-end">$491.00</td>
+                                        </tr>*@
+                                        <!-- end tr -->
+                                        <tr>
+                                            <th scope="row" colspan="4" class="text-end">Tổng Đơn Giá</th>
+                                            <td class="text-end">1.300.000đ</td>
+                                        </tr>
+                                        <!-- end tr -->
+                                        @*<tr>
+                                            <th scope="row" colspan="4" class="border-0 text-end">
+                                                Discount :
+                                            </th>
+                                            <td class="border-0 text-end">- $25.50</td>
+                                        </tr>*@
+                                        <!-- end tr -->
+                                        <tr>
+                                            <th scope="row" colspan="4" class="border-0 text-end">
+                                                Phí Giao Hàng :
+                                            </th>
+                                            <td class="border-0 text-end">15.000đ</td>
+                                        </tr>
+                                        <!-- end tr -->
+                                        @*<tr>
+                                            <th scope="row" colspan="4" class="border-0 text-end">
+                                                Tax
+                                            </th>
+                                            <td class="border-0 text-end">$12.00</td>
+                                        </tr>*@
+                                        <!-- end tr -->
+                                        <tr>
+                                            <th scope="row" colspan="4" class="border-0 text-end">Tổng Thanh Toán</th>
+                                            <td class="border-0 text-end"><h4 class="m-0 fw-semibold">1.315.000đ</h4></td>
+                                        </tr>
+                                        <!-- end tr -->
+                                    </tbody><!-- end tbody -->
+                                </table><!-- end table -->
+                            </div><!-- end table responsive -->
+                            <div class="d-print-none mt-4">
+                                <div class="float-end">
+                                    <a href="#" class="btn btn-primary w-md">Hoàn Tất Thanh Toán</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end col -->
+        </div>
+    </div>
+</body>

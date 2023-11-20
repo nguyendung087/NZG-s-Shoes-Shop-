@@ -1,0 +1,43 @@
+﻿@model IEnumerable<QuanLyBanGiay.Models.KhachHang>
+<link href="~/css/profile.css" rel="stylesheet" type="text/css" media="all" />
+@{
+    ViewData["Title"] = "Thông Tin Cá Nhân";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <section class="bg-light">
+        <div class="container" style="margin-top: -100px; margin-bottom: -100px">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-12">
+                        <div class="card card-style1 border-0">
+                            <div class="card-body p-sm-2-3 p-md-6 p-lg-7">
+                                <div class="row align-items-center" style="display: flex">
+                                    <div class="col-lg-4" style="margin-left: 450px; margin-right: 20px">
+                                        <img width="150px" height="auto" src="~/images/Thao.jpg" alt="...">
+                                    </div>
+
+                                    <div class="col-lg-6 px-xl-10" style="margin-top: 20px">
+                                        <span class="text-primary">Khách Hàng</span>
+                                        <h3 class="h2 text-white mb-0"><span class="display-26 text-secondary me-2 font-weight-600">Họ Và Tên: </span>@item.HoTen</h3>
+
+                                        <ul class="list-unstyled mb-1-9">
+                                            <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Giới Tính: </span>@item.GioiTinh</li>
+                                            <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Email: </span>@item.Email</li>
+                                            <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Địa Chỉ: </span>@item.DiaChi</li>
+                                            <li class="display-28"><span class="display-26 text-secondary me-2 font-weight-600">Số Điện Thoại: </span>@item.SDT</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </section>
+</body>
+

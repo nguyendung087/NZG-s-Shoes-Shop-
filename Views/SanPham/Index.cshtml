@@ -1,0 +1,96 @@
+﻿@model IEnumerable<QuanLyBanGiay.Models.SanPham>
+@Html.Partial("/Views/Shared/_AdminLink.cshtml")
+
+@{
+    ViewData["Title"] = "Quản Lý Sản Phẩm";
+    Layout = null;
+}
+
+@*
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Search">
+            <label>Tìm kiếm</label>
+            <input name="TimKiemSV" placeholder="Nhập từ khóa tìm kiếm" />
+            <input type="submit" value="Tìm kiếm" class="btn btn-primary" />
+        </form>
+    </div>
+</div>*@
+<hr />
+<body>
+    <h1>@ViewData["Title"]</h1>
+    <p>
+        <a asp-controller="SanPham" asp-action="Create" class="btn btn-outline-primary">Thêm mới</a>
+    </p>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TenGiay)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhanLoai)
+                </th>
+
+                <th>
+                    Màu Sắc
+                </th>
+                <th>
+                    Thương Hiệu
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GiaBan)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HinhAnh)
+                </th>
+                <th>
+                    Chỉnh sửa
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenGiay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhanLoai)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MauSac)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ThuongHieu)
+                    </td>
+                    <td>
+                        @string.Format("{0:N2}", item.GiaBan)đ
+                    </td>
+                    <td>
+                        <img height="100" src="@item.HinhAnh" alt="" />
+                    </td>
+
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-outline-warning">Cập nhật</a>
+                        <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-outline-dark">Chi tiết</a>
+                        <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-outline-danger">Xóa</a>
+                        @*<a onclick="delete(@item.ID)" href="#" class="btn btn-outline-danger">Xóa</a>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+
+
+@*@section JS {
+    <script>
+        var delete = function(id) {
+            if(confirm("Bạn có chắc chắn muốn xóa sinh viên này không?") == true) {
+                location.ref = "/SinhViens/Delete?id=" + id
+            }
+        }
+    </script>
+}*@

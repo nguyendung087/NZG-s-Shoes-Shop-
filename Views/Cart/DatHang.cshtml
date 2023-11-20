@@ -1,0 +1,103 @@
+﻿@using QuanLyBanGiay.Models
+@model GioHang
+<head>
+    <title>NZG KICKS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" href="~/images/NZGg-removebg.png" type="image/x-icon">
+    <link href="~/css/cart.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+@{
+    ViewData["Title"] = "Đơn Đặt Hàng";
+    Layout = null;
+
+}
+<h1>Thông Tin Hàng Hóa</h1>
+
+<body>
+    <div class="row" style="align-items:center">
+        <div class="col-sm-6">
+            <div class="text-muted">
+                <h5 class="font-size-16 mb-3">Khách Đặt Hàng:</h5>
+                <h5 class="font-size-15 mb-2">Nguyễn Dũng</h5>
+                <p class="mb-1">Nhổn</p>
+                <p>0123456789</p>
+            </div>
+        </div>
+        <!-- end col -->
+        <div class="col-sm-6">
+            <div class="text-muted text-sm-end">
+                <div>
+                    <h5 class="font-size-15 mb-1">Hóa đơn số:</h5>
+                    <p>1</p>
+                </div>
+                <div class="mt-4">
+                    <h5 class="font-size-15 mb-1">Đặt ngày:</h5>
+                    <p>05/05/2023</p>
+                </div>
+            </div>
+        </div>
+        <!-- end col -->
+    </div>
+    <div class="py-2">
+        <h3 class="font-size-25"><b>Tổng Kết Hóa Đơn</b></h3>
+
+        <div class="table-responsive">
+            <table class="table table-bordered align-middle table-nowrap table-centered mb-0">
+                <thead>
+                    <tr>
+                        <th>Sản Phẩm</th>
+                        <th>Đơn Giá</th>
+                        <th>Số Lượng</th>
+                        <th class="text-end" style="width: 120px;">Tổng</th>
+                    </tr>
+                </thead><!-- end thead -->
+                @foreach (var item in Model?.matHangs)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div>
+                                    <h5 class="text-truncate font-size-14 mb-1">@item.sanpham.TenGiay</h5>
+                                    <p class="text-muted mb-0">@item.sanpham.PhanLoai, @item.sanpham.MauSac</p>
+                                </div>
+                            </td>
+                            <td>@string.Format("{0:N2}", item.sanpham.GiaBan)đ</td>
+                            <td>@item.SoLuong</td>
+                            <td class="text-end">@string.Format("{0:N2}", (item.sanpham.GiaBan * item.SoLuong))đ</td>
+                        </tr>
+                        
+                    </tbody>
+                    
+                }
+            </table>
+            <table>
+                <tr>
+                    <th scope="row" colspan="4" class="text-end">Tổng Đơn Giá</th>
+                    <td class="text-end">@string.Format("{0:N2}", Model.TinhTongTien())đ</td>
+                </tr>
+                <tr>
+                    <th scope="row" colspan="4" class="border-0 text-end">
+                        Phí Giao Hàng :
+                    </th>
+                    <td class="border-0 text-end">15.000đ</td>
+                </tr>
+                <tr>
+                    <th scope="row" colspan="4" class="border-0 text-end">Tổng Thanh Toán: </th>
+                    <td class="border-0 text-end"><h4 class="m-0 fw-semibold">@string.Format("{0:N2}", ViewBag.TongThanhToan + 15000)đ</h4></td>
+                </tr>
+                
+            
+            </table>
+            
+        </div>
+        <div class="d-print-none mt-4">
+            <div class="float-end">
+                <a href="/Home/Index" class="btn btn-primary w-md">Hoàn Tất Đặt Hàng</a>
+            </div>
+        </div>
+    </div>
+</body>
